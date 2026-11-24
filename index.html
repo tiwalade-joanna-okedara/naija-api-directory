@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Naija API Directory: 68 services a Nigerian e-commerce app needs</title>
+<meta name="description" content="Every outside service one Nigerian e-commerce app needs, with honest notes on what works, what's slow and what's closed.">
+<link rel="stylesheet" href="style.css"></head><body><div class="wrap">
+<header class="top"><h1>Naija API Directory 🇳🇬</h1><a href="https://github.com/tiwalade-joanna-okedara/naija-api-directory">View on GitHub</a></header>
+<p class="tag">Every outside service one Nigerian e-commerce app needs: 68 of them, with honest notes on what works, what's slow and what's closed. Compiled while building Shopinbos.</p>
+<div class="card row"><div><label for="q">Search</label><input id="q" placeholder="Try: whatsapp, KYC, delivery, paystack"></div>
+<div><label for="cat">Category</label><select id="cat"><option value="">All categories</option></select></div>
+<div><label for="st">Status</label><select id="st"><option value="">Any status</option></select></div></div>
+<p class="muted" id="count"></p><div id="list"></div>
+<footer>Notes reflect one builder's experience in 2026, not a ranking. <a href="https://github.com/tiwalade-joanna-okedara/naija-api-directory/blob/main/CONTRIBUTING.md">Add yours</a>. Made by <a href="https://github.com/tiwalade-joanna-okedara">Tiwalade Joanna Okedara-Kalu</a>.</footer>
+</div><script>
+const LAB={works:['works well','good'],slow:['slow approval','warn'],paid:['paid per use','warn'],closed:['closed to Nigeria','bad'],partner:['partnership first',''],unreliable:['unreliable','bad']};
+let DATA;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('services.json').then(r=>r.json()).then(d=>{DATA=d;
+ const cat=document.getElementById('cat'),st=document.getElementById('st');
+ d.categories.forEach(c=>cat.add(new Option(c.category,c.category)));
+ Object.entries(LAB).forEach(([k,v])=>st.add(new Option(v[0],k)));
+ ['q','cat','st'].forEach(id=>document.getElementById(id).addEventListener('input',render));render();});
+function render(){const q=document.getElementById('q').value.toLowerCase().trim(),c=document.getElementById('cat').value,s=document.getElementById('st').value;let n=0,html='';
+ const groups=DATA.categories.map(g=>({...g,services:g.services}));
+ groups.push({category:'Also worth knowing',services:DATA.extra.map(e=>({...e,what:''}))});
+ for(const g of groups){if(c&&g.category!==c)continue;
+  const items=g.services.filter(x=>(!s||x.status===s)&&(!q||(x.name+' '+x.what+' '+x.note).toLowerCase().includes(q)));
+  if(!items.length)continue;n+=items.length;
+  html+=`<div class="card"><h3 style="margin-top:0">${esc(g.category)}</h3><table>`+items.map(x=>`<tr><td style="width:32%"><b>${esc(x.name)}</b><br>${x.status?`<span class="pill ${LAB[x.status][1]}">${LAB[x.status][0]}</span>`:''}</td><td>${esc(x.what)}${x.note?`<div class="muted" style="margin-top:4px">${esc(x.note)}</div>`:''}</td></tr>`).join('')+`</table></div>`;}
+ document.getElementById('list').innerHTML=html||'<p>No matches.</p>';document.getElementById('count').textContent=n+' services shown';}
+</script></body></html>

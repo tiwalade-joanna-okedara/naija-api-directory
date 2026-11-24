@@ -1,0 +1,465 @@
+{
+ "source": "Compiled by Tiwalade Joanna Okedara-Kalu while building Shopinbos (2026). Notes reflect her own experience, not a ranking.",
+ "extra": [
+  {
+   "name": "CAC VAS API",
+   "status": "unreliable",
+   "note": "Worked in testing, then checks failed in production. Support form, chatbot and phone calls didn't resolve it. Backup identity providers were added."
+  },
+  {
+   "name": "Africa's Talking",
+   "status": "works",
+   "note": "Calls and SMS have been reliable."
+  }
+ ],
+ "categories": [
+  {
+   "category": "Must sort out first",
+   "services": [
+    {
+     "name": "TikTok developer app",
+     "what": "for TikTok Login and posting videos.",
+     "status": "slow",
+     "note": "Audits and approvals take time."
+    },
+    {
+     "name": "Meta Business verification",
+     "what": "unlocks WhatsApp, Instagram, Facebook and ads. Needs a CAC certificate, a utility bill and a website.",
+     "status": "slow",
+     "note": "Gate in front of WhatsApp, Instagram, Facebook messaging and ads. Needs a CAC certificate, a utility bill in the business name and a matching website. If any don't line up, you wait."
+    },
+    {
+     "name": "WhatsApp platform number and first message templates",
+     "what": "sign-in codes, order updates, delivery codes.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Paystack live mode",
+     "what": "needs CAC documents, director IDs and a business bank account.",
+     "status": "works",
+     "note": "Solid. Split payments let money go straight to the seller's own bank through a subaccount."
+    },
+    {
+     "name": "SMS sender ID",
+     "what": "so texts arrive from \"Shopinbos\", not a random number. Approval takes days.",
+     "status": "slow",
+     "note": "Approval takes days. Build with a fallback SMS provider from day one."
+    },
+    {
+     "name": "Apple Developer (organisation)",
+     "what": "needs a D-U-N-S number, which can take one to two weeks.",
+     "status": "slow",
+     "note": "Needs a D-U-N-S number, which can take one to two weeks."
+    },
+    {
+     "name": "Google Play Console (organisation)",
+     "what": "identity checks, and new personal accounts must run a closed test first.",
+     "status": "slow",
+     "note": "New personal accounts must run a closed test first."
+    },
+    {
+     "name": "KYC provider business account",
+     "what": "for BVN, NIN and CAC checks.",
+     "status": "paid",
+     "note": "BVN, NIN and CAC lookups are paid per check, often from a prepaid wallet."
+    }
+   ]
+  },
+  {
+   "category": "The core platform",
+   "services": [
+    {
+     "name": "Supabase",
+     "what": "database, sign-in, file storage, live updates.",
+     "status": "works",
+     "note": "Works the same in Ibadan as in San Francisco. Billed in dollars."
+    },
+    {
+     "name": "Vercel",
+     "what": "hosts the web app, the API and every seller's store.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "GitHub",
+     "what": "code, reviews, automatic checks.",
+     "status": "works",
+     "note": "Excellent. Billed in dollars."
+    },
+    {
+     "name": "Expo (EAS)",
+     "what": "builds and updates the phone apps.",
+     "status": "works",
+     "note": "Excellent. Billed in dollars."
+    },
+    {
+     "name": "Apple Developer",
+     "what": "iPhone apps and push notifications.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Google Play and Firebase",
+     "what": "Android apps and push notifications.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Upstash (Redis and QStash)",
+     "what": "rate limits, caching and background jobs.",
+     "status": "works",
+     "note": "Excellent. Billed in dollars."
+    },
+    {
+     "name": "Sentry",
+     "what": "error alerts.",
+     "status": "works",
+     "note": "Excellent. Billed in dollars."
+    },
+    {
+     "name": "PostHog",
+     "what": "analytics and feature switches.",
+     "status": "",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "category": "Payments and money",
+   "services": [
+    {
+     "name": "Paystack Transactions",
+     "what": "card, transfer and USSD at checkout.",
+     "status": "works",
+     "note": "Solid for card, transfer and USSD."
+    },
+    {
+     "name": "Paystack Webhooks",
+     "what": "tells us when a payment succeeds, fails or is refunded.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Paystack Transfers and Recipients",
+     "what": "payouts to sellers, suppliers and delivery companies.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Paystack Resolve Account",
+     "what": "shows the account name when someone types a bank number.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Paystack Dedicated Virtual Accounts",
+     "what": "a pay-in account for each delivery company.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Paystack Refunds",
+     "what": "returns and cancelled orders.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Dojah or Youverify",
+     "what": "BVN, NIN, CAC and selfie checks.",
+     "status": "paid",
+     "note": "Paid per check. Worth having more than one provider as backup."
+    },
+    {
+     "name": "Exchange rate source",
+     "what": "the naira price of yuan for China imports.",
+     "status": "",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "category": "Messaging and sign-in",
+   "services": [
+    {
+     "name": "WhatsApp Cloud API",
+     "what": "sign-in codes, order and delivery updates.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "WhatsApp Embedded Signup",
+     "what": "sellers connect their own WhatsApp Business number.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "WhatsApp message templates",
+     "what": "codes, orders, receipts, broadcasts. Every template needs Meta's approval.",
+     "status": "slow",
+     "note": "Every template needs Meta's approval."
+    },
+    {
+     "name": "WhatsApp Catalog (Commerce API)",
+     "what": "sellers' products in their WhatsApp catalogue.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Termii or Sendchamp",
+     "what": "SMS codes and delivery codes.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Supabase Send SMS hook",
+     "what": "sends sign-in codes through WhatsApp or SMS.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Resend",
+     "what": "email codes, receipts and payout notices.",
+     "status": "works",
+     "note": "Excellent. Billed in dollars."
+    },
+    {
+     "name": "Expo Push (Apple and Google)",
+     "what": "\"new order\", \"new message\", \"rider is coming\".",
+     "status": "",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "category": "AI and media",
+   "services": [
+    {
+     "name": "Anthropic (Claude)",
+     "what": "powers Rex, who builds stores, and Peggy, who helps run them.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Embeddings",
+     "what": "product search by meaning, not just keywords.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Image generation",
+     "what": "logo ideas and banners.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Background removal",
+     "what": "clean product photos.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Video generation",
+     "what": "product videos for Reels, TikTok and WhatsApp Status.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Text to speech",
+     "what": "voiceovers in English, Pidgin, Yorùbá and Hausa.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Speech to text",
+     "what": "voice notes and voice typing.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Translation",
+     "what": "Chinese product titles into English. Our AI handles this, so no extra service.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Rive or Lottie",
+     "what": "animation files for Rex and Peggy.",
+     "status": "",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "category": "Selling channels and ads",
+   "services": [
+    {
+     "name": "Instagram messaging",
+     "what": "Instagram DMs in one inbox.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Messenger Platform",
+     "what": "Facebook Page messages in the same inbox.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Instagram content publishing",
+     "what": "post photos, carousels and Reels.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Meta Catalog API",
+     "what": "Instagram and Facebook shops.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Meta Marketing API",
+     "what": "click-to-WhatsApp adverts.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "TikTok Shop Partner API",
+     "what": "products and orders on TikTok Shop.",
+     "status": "closed",
+     "note": "When checked, Nigeria was not on TikTok Shop's list of seller markets, and partner developers must register in their own local market."
+    },
+    {
+     "name": "TikTok Content Posting API",
+     "what": "post product videos to sellers' TikTok accounts.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "TikTok Marketing API",
+     "what": "TikTok adverts.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Google Merchant Center",
+     "what": "free product listings on Google.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Jumia and Konga",
+     "what": "marketplace listings. Manual applications first, APIs only after partner agreements.",
+     "status": "partner",
+     "note": "No open self-serve APIs. Partner agreement first."
+    }
+   ]
+  },
+  {
+   "category": "Delivery and addresses",
+   "services": [
+    {
+     "name": "Shipbubble",
+     "what": "quotes and bookings across couriers.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "GIG Logistics",
+     "what": "interstate delivery.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Kwik",
+     "what": "same-day bikes in Lagos.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Konga KOS, Dreacot and Travo",
+     "what": "more delivery options, partner agreements first.",
+     "status": "partner",
+     "note": "Partner agreements first."
+    },
+    {
+     "name": "NIPOST postcode API",
+     "what": "correct postcodes at checkout.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Google Maps Places",
+     "what": "address search at checkout.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Google Maps Geocoding and Distance Matrix",
+     "what": "rider distance and delivery price.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Google Maps SDK (mobile)",
+     "what": "the rider map in the apps.",
+     "status": "",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "category": "Domains, imports and the website",
+   "services": [
+    {
+     "name": "Vercel Domains API",
+     "what": "sellers' own web addresses with SSL.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Domain registrar API",
+     "what": "sellers buy a web address inside the app.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "NiRA-accredited registrar",
+     "what": ".ng and .com.ng addresses.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Cloudflare for SaaS",
+     "what": "a backup option for custom domains.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "China sourcing partner",
+     "what": "buying, quality-check photos and shipping from China.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Shopify and WooCommerce import",
+     "what": "bring a seller's products and customers across.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "Instagram post import",
+     "what": "turn Instagram posts into products.",
+     "status": "",
+     "note": ""
+    },
+    {
+     "name": "WordPress",
+     "what": "the website, blog and help centre.",
+     "status": "",
+     "note": ""
+    }
+   ]
+  }
+ ]
+}
