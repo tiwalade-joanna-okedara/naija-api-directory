@@ -1,465 +1,392 @@
 {
- "source": "Compiled by Tiwalade Joanna Okedara-Kalu while building Shopinbos (2026). Notes reflect her own experience, not a ranking.",
- "extra": [
-  {
-   "name": "CAC VAS API",
-   "status": "unreliable",
-   "note": "Worked in testing, then checks failed in production. Support form, chatbot and phone calls didn't resolve it. Backup identity providers were added."
-  },
-  {
-   "name": "Africa's Talking",
-   "status": "works",
-   "note": "Calls and SMS have been reliable."
-  }
- ],
+ "title": "Naija API Directory",
+ "updated": "2026-11",
+ "about": "A community list of APIs and developer services for building software in Nigeria. Inclusion is not an endorsement. Check each provider's current docs, pricing and terms.",
+ "status_key": {
+  "active": "Operating",
+  "acquired": "Acquired",
+  "closed": "Shut down"
+ },
  "categories": [
   {
-   "category": "Must sort out first",
+   "category": "Payments and checkout",
+   "intro": "Accept cards, bank transfers, USSD and wallets, and pay out to Nigerian bank accounts.",
    "services": [
     {
-     "name": "TikTok developer app",
-     "what": "for TikTok Login and posting videos.",
-     "status": "slow",
-     "note": "Audits and approvals take time."
+     "name": "Paystack",
+     "url": "https://paystack.com",
+     "what": "Online checkout, payment links, subscriptions, transfers and split payments. Cards, bank transfer, USSD and QR.",
+     "status": "acquired",
+     "note": "Acquired by Stripe in 2020. Widely used by Nigerian startups and SMEs.",
+     "tags": "cards transfer ussd subscriptions split"
     },
     {
-     "name": "Meta Business verification",
-     "what": "unlocks WhatsApp, Instagram, Facebook and ads. Needs a CAC certificate, a utility bill and a website.",
-     "status": "slow",
-     "note": "Gate in front of WhatsApp, Instagram, Facebook messaging and ads. Needs a CAC certificate, a utility bill in the business name and a matching website. If any don't line up, you wait."
+     "name": "Flutterwave",
+     "url": "https://flutterwave.com",
+     "what": "Pan-African payments: cards, transfers, mobile money, USSD and payment links across many currencies. Also offers bills payment APIs.",
+     "status": "active",
+     "note": "Good fit if you plan to sell in several African countries.",
+     "tags": "cards multi-currency africa bills"
     },
     {
-     "name": "WhatsApp platform number and first message templates",
-     "what": "sign-in codes, order updates, delivery codes.",
-     "status": "",
-     "note": ""
+     "name": "Monnify (Moniepoint)",
+     "url": "https://monnify.com",
+     "what": "Collections through dedicated virtual accounts, payouts to any Nigerian bank, and a bills payment API.",
+     "status": "active",
+     "note": "Monnify says it was the first Nigerian gateway to offer virtual accounts.",
+     "tags": "virtual accounts transfers payouts bills"
     },
     {
-     "name": "Paystack live mode",
-     "what": "needs CAC documents, director IDs and a business bank account.",
-     "status": "works",
-     "note": "Solid. Split payments let money go straight to the seller's own bank through a subaccount."
+     "name": "Squad (GTCO)",
+     "url": "https://squadco.com",
+     "what": "Collections by card, bank transfer and more, from Guaranty Trust's payments arm.",
+     "status": "active",
+     "note": "",
+     "tags": "cards transfer"
     },
     {
-     "name": "SMS sender ID",
-     "what": "so texts arrive from \"Shopinbos\", not a random number. Approval takes days.",
-     "status": "slow",
-     "note": "Approval takes days. Build with a fallback SMS provider from day one."
+     "name": "Kora",
+     "url": "https://korahq.com",
+     "what": "Pay-ins and payouts, including card, bank transfer and wallets such as OPay and PalmPay.",
+     "status": "active",
+     "note": "",
+     "tags": "cards transfer wallets payouts"
     },
     {
-     "name": "Apple Developer (organisation)",
-     "what": "needs a D-U-N-S number, which can take one to two weeks.",
-     "status": "slow",
-     "note": "Needs a D-U-N-S number, which can take one to two weeks."
+     "name": "Interswitch (Webpay / IPG)",
+     "url": "https://www.interswitchgroup.com",
+     "what": "Long-standing payment gateway and switch. Verve cards, Quickteller and more.",
+     "status": "active",
+     "note": "Some developers find the integration heavier than newer gateways.",
+     "tags": "cards verve"
     },
     {
-     "name": "Google Play Console (organisation)",
-     "what": "identity checks, and new personal accounts must run a closed test first.",
-     "status": "slow",
-     "note": "New personal accounts must run a closed test first."
+     "name": "Remita",
+     "url": "https://www.remita.net",
+     "what": "Collections and payments, widely used for government and institutional payments.",
+     "status": "active",
+     "note": "",
+     "tags": "government collections"
     },
     {
-     "name": "KYC provider business account",
-     "what": "for BVN, NIN and CAC checks.",
-     "status": "paid",
-     "note": "BVN, NIN and CAC lookups are paid per check, often from a prepaid wallet."
+     "name": "Fincra",
+     "url": "https://fincra.com",
+     "what": "Pay-ins (gateway, payment links, virtual accounts) and payouts, including cross-border.",
+     "status": "active",
+     "note": "",
+     "tags": "payouts cross-border virtual accounts"
+    },
+    {
+     "name": "SeerBit",
+     "url": "https://seerbit.com",
+     "what": "Payment gateway for cards, transfers and more.",
+     "status": "active",
+     "note": "",
+     "tags": "cards"
+    },
+    {
+     "name": "eTranzact",
+     "url": "https://www.etranzact.com",
+     "what": "Payment processing and switching, one of the older Nigerian players.",
+     "status": "active",
+     "note": "",
+     "tags": "switching"
     }
    ]
   },
   {
-   "category": "The core platform",
+   "category": "Identity and KYC",
+   "intro": "Check NIN (via NIMC), BVN (via NIBSS), documents, faces and businesses before you onboard someone.",
    "services": [
     {
-     "name": "Supabase",
-     "what": "database, sign-in, file storage, live updates.",
-     "status": "works",
-     "note": "Works the same in Ibadan as in San Francisco. Billed in dollars."
+     "name": "Smile ID",
+     "url": "https://usesmileid.com",
+     "what": "Pan-African ID verification: NIN, BVN, phone and document checks, selfie matching and business checks.",
+     "status": "active",
+     "note": "",
+     "tags": "nin bvn document liveness kyb"
     },
     {
-     "name": "Vercel",
-     "what": "hosts the web app, the API and every seller's store.",
-     "status": "",
-     "note": ""
+     "name": "Dojah",
+     "url": "https://dojah.io",
+     "what": "Identity verification, KYC widgets, fraud checks and lookups for African businesses.",
+     "status": "active",
+     "note": "",
+     "tags": "nin bvn kyc fraud"
     },
     {
-     "name": "GitHub",
-     "what": "code, reviews, automatic checks.",
-     "status": "works",
-     "note": "Excellent. Billed in dollars."
+     "name": "Prembly (formerly IdentityPass)",
+     "url": "https://prembly.com",
+     "what": "Identity and business verification APIs for Nigeria and other markets.",
+     "status": "active",
+     "note": "",
+     "tags": "nin bvn cac kyb"
     },
     {
-     "name": "Expo (EAS)",
-     "what": "builds and updates the phone apps.",
-     "status": "works",
-     "note": "Excellent. Billed in dollars."
+     "name": "Youverify",
+     "url": "https://youverify.co",
+     "what": "KYC, KYB and AML screening for banks and fintechs.",
+     "status": "active",
+     "note": "",
+     "tags": "kyc aml kyb"
     },
     {
-     "name": "Apple Developer",
-     "what": "iPhone apps and push notifications.",
-     "status": "",
-     "note": ""
+     "name": "QoreID (VerifyMe)",
+     "url": "https://qoreid.com",
+     "what": "Identity, address and business verification in Nigeria.",
+     "status": "active",
+     "note": "",
+     "tags": "address verification nin"
     },
     {
-     "name": "Google Play and Firebase",
-     "what": "Android apps and push notifications.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Upstash (Redis and QStash)",
-     "what": "rate limits, caching and background jobs.",
-     "status": "works",
-     "note": "Excellent. Billed in dollars."
-    },
-    {
-     "name": "Sentry",
-     "what": "error alerts.",
-     "status": "works",
-     "note": "Excellent. Billed in dollars."
-    },
-    {
-     "name": "PostHog",
-     "what": "analytics and feature switches.",
-     "status": "",
-     "note": ""
+     "name": "Didit",
+     "url": "https://didit.me",
+     "what": "Global identity platform with Nigerian NIN and BVN checks and published per-check pricing.",
+     "status": "active",
+     "note": "",
+     "tags": "nin bvn global"
     }
    ]
   },
   {
-   "category": "Payments and money",
+   "category": "Bank data and banking-as-a-service",
+   "intro": "Read account data with consent, open accounts for your users, issue virtual accounts and cards.",
    "services": [
     {
-     "name": "Paystack Transactions",
-     "what": "card, transfer and USSD at checkout.",
-     "status": "works",
-     "note": "Solid for card, transfer and USSD."
+     "name": "Mono",
+     "url": "https://mono.co",
+     "what": "Open banking: connect bank accounts, read statements and balances, direct debit.",
+     "status": "acquired",
+     "note": "Acquired by Flutterwave in January 2026.",
+     "tags": "open banking statements direct debit"
     },
     {
-     "name": "Paystack Webhooks",
-     "what": "tells us when a payment succeeds, fails or is refunded.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Paystack Transfers and Recipients",
-     "what": "payouts to sellers, suppliers and delivery companies.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Paystack Resolve Account",
-     "what": "shows the account name when someone types a bank number.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Paystack Dedicated Virtual Accounts",
-     "what": "a pay-in account for each delivery company.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Paystack Refunds",
-     "what": "returns and cancelled orders.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Dojah or Youverify",
-     "what": "BVN, NIN, CAC and selfie checks.",
-     "status": "paid",
-     "note": "Paid per check. Worth having more than one provider as backup."
-    },
-    {
-     "name": "Exchange rate source",
-     "what": "the naira price of yuan for China imports.",
-     "status": "",
-     "note": ""
-    }
-   ]
-  },
-  {
-   "category": "Messaging and sign-in",
-   "services": [
-    {
-     "name": "WhatsApp Cloud API",
-     "what": "sign-in codes, order and delivery updates.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "WhatsApp Embedded Signup",
-     "what": "sellers connect their own WhatsApp Business number.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "WhatsApp message templates",
-     "what": "codes, orders, receipts, broadcasts. Every template needs Meta's approval.",
-     "status": "slow",
-     "note": "Every template needs Meta's approval."
-    },
-    {
-     "name": "WhatsApp Catalog (Commerce API)",
-     "what": "sellers' products in their WhatsApp catalogue.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Termii or Sendchamp",
-     "what": "SMS codes and delivery codes.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Supabase Send SMS hook",
-     "what": "sends sign-in codes through WhatsApp or SMS.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Resend",
-     "what": "email codes, receipts and payout notices.",
-     "status": "works",
-     "note": "Excellent. Billed in dollars."
-    },
-    {
-     "name": "Expo Push (Apple and Google)",
-     "what": "\"new order\", \"new message\", \"rider is coming\".",
-     "status": "",
-     "note": ""
-    }
-   ]
-  },
-  {
-   "category": "AI and media",
-   "services": [
-    {
-     "name": "Anthropic (Claude)",
-     "what": "powers Rex, who builds stores, and Peggy, who helps run them.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Embeddings",
-     "what": "product search by meaning, not just keywords.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Image generation",
-     "what": "logo ideas and banners.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Background removal",
-     "what": "clean product photos.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Video generation",
-     "what": "product videos for Reels, TikTok and WhatsApp Status.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Text to speech",
-     "what": "voiceovers in English, Pidgin, Yorùbá and Hausa.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Speech to text",
-     "what": "voice notes and voice typing.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Translation",
-     "what": "Chinese product titles into English. Our AI handles this, so no extra service.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Rive or Lottie",
-     "what": "animation files for Rex and Peggy.",
-     "status": "",
-     "note": ""
-    }
-   ]
-  },
-  {
-   "category": "Selling channels and ads",
-   "services": [
-    {
-     "name": "Instagram messaging",
-     "what": "Instagram DMs in one inbox.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Messenger Platform",
-     "what": "Facebook Page messages in the same inbox.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Instagram content publishing",
-     "what": "post photos, carousels and Reels.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Meta Catalog API",
-     "what": "Instagram and Facebook shops.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Meta Marketing API",
-     "what": "click-to-WhatsApp adverts.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "TikTok Shop Partner API",
-     "what": "products and orders on TikTok Shop.",
+     "name": "Okra",
+     "url": "https://okra.ng",
+     "what": "Open banking API.",
      "status": "closed",
-     "note": "When checked, Nigeria was not on TikTok Shop's list of seller markets, and partner developers must register in their own local market."
+     "note": "Shut down in May 2025. Remove it from old integrations.",
+     "tags": "open banking"
     },
     {
-     "name": "TikTok Content Posting API",
-     "what": "post product videos to sellers' TikTok accounts.",
-     "status": "",
-     "note": ""
+     "name": "Anchor",
+     "url": "https://getanchor.co",
+     "what": "Banking-as-a-service: accounts, transfers, virtual accounts, cards, bill payments and bulk payouts.",
+     "status": "active",
+     "note": "Publishes an MCP server so AI coding tools can read its API docs.",
+     "tags": "baas accounts cards virtual accounts"
     },
     {
-     "name": "TikTok Marketing API",
-     "what": "TikTok adverts.",
-     "status": "",
-     "note": ""
+     "name": "OnePipe",
+     "url": "https://onepipe.io",
+     "what": "Embedded finance through partner banks: accounts, payments and lending products.",
+     "status": "active",
+     "note": "",
+     "tags": "baas embedded finance"
     },
     {
-     "name": "Google Merchant Center",
-     "what": "free product listings on Google.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Jumia and Konga",
-     "what": "marketplace listings. Manual applications first, APIs only after partner agreements.",
-     "status": "partner",
-     "note": "No open self-serve APIs. Partner agreement first."
+     "name": "Maplerad",
+     "url": "https://maplerad.com",
+     "what": "Accounts, cards and payments infrastructure for African businesses.",
+     "status": "active",
+     "note": "",
+     "tags": "cards baas"
     }
    ]
   },
   {
-   "category": "Delivery and addresses",
+   "category": "SMS, OTP, voice and WhatsApp",
+   "intro": "Send OTPs, alerts and messages. In Nigeria, a registered sender ID and a backup route matter.",
+   "services": [
+    {
+     "name": "Termii",
+     "url": "https://termii.com",
+     "what": "SMS, OTP, voice, WhatsApp and email APIs built in Nigeria, with a DND route for transactional messages.",
+     "status": "active",
+     "note": "",
+     "tags": "sms otp whatsapp voice dnd"
+    },
+    {
+     "name": "Africa's Talking",
+     "url": "https://africastalking.com",
+     "what": "SMS, voice, USSD and airtime APIs across Africa.",
+     "status": "active",
+     "note": "",
+     "tags": "sms voice ussd airtime"
+    },
+    {
+     "name": "Sendchamp",
+     "url": "https://sendchamp.com",
+     "what": "SMS, voice, WhatsApp and email APIs for African businesses.",
+     "status": "active",
+     "note": "",
+     "tags": "sms whatsapp voice"
+    },
+    {
+     "name": "Twilio",
+     "url": "https://www.twilio.com",
+     "what": "Global SMS, voice, WhatsApp and Verify APIs. Works for Nigeria, usually at higher local prices.",
+     "status": "active",
+     "note": "",
+     "tags": "global sms whatsapp verify"
+    },
+    {
+     "name": "WhatsApp Business Platform (Meta)",
+     "url": "https://developers.facebook.com/docs/whatsapp",
+     "what": "Official WhatsApp API. Needs a verified Meta business; you pay Meta per message plus any provider fee.",
+     "status": "active",
+     "note": "Meta business verification asks for registration documents and a website that match.",
+     "tags": "whatsapp meta"
+    }
+   ]
+  },
+  {
+   "category": "Bills, airtime and data (VAS)",
+   "intro": "Sell airtime, data, electricity tokens, cable TV and more inside your product.",
+   "services": [
+    {
+     "name": "VTpass",
+     "url": "https://www.vtpass.com/developers",
+     "what": "Airtime, data, cable TV, electricity, education and insurance payments, with a sandbox.",
+     "status": "active",
+     "note": "",
+     "tags": "airtime data electricity cable"
+    },
+    {
+     "name": "Baxi (Onafriq)",
+     "url": "https://onafriq.com",
+     "what": "Bill payments through a large agent network and API. Onafriq lists 248 billers.",
+     "status": "active",
+     "note": "",
+     "tags": "bills agent network"
+    },
+    {
+     "name": "Flutterwave Bills",
+     "url": "https://developer.flutterwave.com",
+     "what": "Airtime, data, cable, utilities and tax payments from your Flutterwave wallet. Nigerian billers only.",
+     "status": "active",
+     "note": "",
+     "tags": "airtime bills"
+    },
+    {
+     "name": "Monnify Bills Payment",
+     "url": "https://monnify.com/products/bills-payment",
+     "what": "Airtime, data, electricity tokens, cable TV and education payments. API only.",
+     "status": "active",
+     "note": "",
+     "tags": "airtime electricity"
+    }
+   ]
+  },
+  {
+   "category": "Delivery and logistics",
+   "intro": "Quote, book and track deliveries inside Nigeria and abroad.",
    "services": [
     {
      "name": "Shipbubble",
-     "what": "quotes and bookings across couriers.",
-     "status": "",
-     "note": ""
+     "url": "https://shipbubble.com",
+     "what": "Shipping aggregator: one API for many couriers (DHL, UPS, GIG, Topship and others), with rate comparison.",
+     "status": "active",
+     "note": "",
+     "tags": "aggregator rates tracking"
     },
     {
      "name": "GIG Logistics",
-     "what": "interstate delivery.",
-     "status": "",
-     "note": ""
+     "url": "https://giglogistics.com/developer",
+     "what": "Courier with APIs for shipping inside Nigeria and internationally.",
+     "status": "active",
+     "note": "Contact them for API access details.",
+     "tags": "courier"
     },
     {
-     "name": "Kwik",
-     "what": "same-day bikes in Lagos.",
-     "status": "",
-     "note": ""
+     "name": "Kwik Delivery",
+     "url": "https://kwik.delivery",
+     "what": "Same-day last-mile delivery API, mainly Lagos and Abuja.",
+     "status": "active",
+     "note": "",
+     "tags": "last-mile lagos abuja"
     },
     {
-     "name": "Konga KOS, Dreacot and Travo",
-     "what": "more delivery options, partner agreements first.",
-     "status": "partner",
-     "note": "Partner agreements first."
+     "name": "Sendbox",
+     "url": "https://sendbox.co",
+     "what": "Local and international shipping and fulfilment.",
+     "status": "active",
+     "note": "",
+     "tags": "shipping fulfilment international"
     },
     {
-     "name": "NIPOST postcode API",
-     "what": "correct postcodes at checkout.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Google Maps Places",
-     "what": "address search at checkout.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Google Maps Geocoding and Distance Matrix",
-     "what": "rider distance and delivery price.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Google Maps SDK (mobile)",
-     "what": "the rider map in the apps.",
-     "status": "",
-     "note": ""
+     "name": "Topship",
+     "url": "https://topship.africa",
+     "what": "International shipping from Nigeria.",
+     "status": "active",
+     "note": "",
+     "tags": "international export"
     }
    ]
   },
   {
-   "category": "Domains, imports and the website",
+   "category": "Free data and open-source helpers",
+   "intro": "Reference data you'll need on day one: banks, states, LGAs and holidays.",
    "services": [
     {
-     "name": "Vercel Domains API",
-     "what": "sellers' own web addresses with SSL.",
-     "status": "",
-     "note": ""
+     "name": "ng-banks (npm)",
+     "url": "https://github.com/BolajiOlajide/ng-banks",
+     "what": "Zero-dependency package listing CBN-recognised Nigerian banks.",
+     "status": "active",
+     "note": "",
+     "tags": "banks npm"
     },
     {
-     "name": "Domain registrar API",
-     "what": "sellers buy a web address inside the app.",
-     "status": "",
-     "note": ""
+     "name": "Nigerian Banks API",
+     "url": "https://github.com/supermx1/nigerian-banks-api",
+     "what": "Static JSON of Nigerian banks with logos and USSD codes, served from GitHub Pages.",
+     "status": "active",
+     "note": "",
+     "tags": "banks logos ussd"
     },
     {
-     "name": "NiRA-accredited registrar",
-     "what": ".ng and .com.ng addresses.",
-     "status": "",
-     "note": ""
+     "name": "States and Cities API",
+     "url": "https://github.com/devcenter-square/states-cities",
+     "what": "Open-source API for states, cities and LGAs.",
+     "status": "active",
+     "note": "",
+     "tags": "states lgas"
     },
     {
-     "name": "Cloudflare for SaaS",
-     "what": "a backup option for custom domains.",
-     "status": "",
-     "note": ""
+     "name": "OpenNG",
+     "url": "https://openng-docs.vercel.app",
+     "what": "Nigerian public data as a REST API: holidays, states, LGAs, with fuel and food prices planned.",
+     "status": "active",
+     "note": "",
+     "tags": "holidays states lgas prices"
     },
     {
-     "name": "China sourcing partner",
-     "what": "buying, quality-check photos and shipping from China.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Shopify and WooCommerce import",
-     "what": "bring a seller's products and customers across.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "Instagram post import",
-     "what": "turn Instagram posts into products.",
-     "status": "",
-     "note": ""
-    },
-    {
-     "name": "WordPress",
-     "what": "the website, blog and help centre.",
-     "status": "",
-     "note": ""
+     "name": "API Ninjas: Nigeria bank holidays",
+     "url": "https://api-ninjas.com/bank-holidays/nigeria",
+     "what": "Nigerian bank holidays by year, useful for settlement and payroll dates.",
+     "status": "active",
+     "note": "",
+     "tags": "holidays"
     }
    ]
+  }
+ ],
+ "before_you_launch": [
+  {
+   "name": "CAC business registration",
+   "note": "Most payment, KYC and WhatsApp providers ask for CAC documents before you go live."
+  },
+  {
+   "name": "Nigeria Data Protection Act 2023 (NDPC)",
+   "note": "Applies whenever you process personal data of people in Nigeria, including ID checks."
+  },
+  {
+   "name": "CBN open banking framework",
+   "note": "Went live on 1 August 2025. Affects how account-data and payment-initiation APIs work."
+  },
+  {
+   "name": "SMS sender ID registration",
+   "note": "Branded sender IDs need approval per network. Plan a fallback route."
   }
  ]
 }

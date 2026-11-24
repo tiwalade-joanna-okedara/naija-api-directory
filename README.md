@@ -1,145 +1,120 @@
 # Naija API Directory 🇳🇬
 
-**Every outside service one Nigerian e-commerce app needs: 68 of them, with honest notes on what works, what's slow and what's closed.**
-
-I compiled this while building [Shopinbos](https://shopinbos.com), a store builder for Nigerian sellers. Founders, investors and policymakers talk about "the Nigerian tech ecosystem" without seeing what a small team actually has to stitch together to ship one product. This is that list.
+**The APIs you need to build software in Nigeria, in one list.** Payments, identity and KYC, bank data and banking-as-a-service, SMS and WhatsApp, bills and airtime, delivery, and free reference data such as banks, states and LGAs.
 
 🔎 **Searchable version:** https://tiwalade-joanna-okedara.github.io/naija-api-directory/
 
 ![Screenshot](screenshot.png)
 
-Status key: ✅ works well · ⏳ slow approval · 💸 paid per use · 🚫 closed to Nigeria · 🤝 partnership first · ⚠️ unreliable
+## Why
 
-> Notes reflect my own experience building one product in 2026. They're not a ranking, and things change. Spotted something out of date? [Open an issue or PR](CONTRIBUTING.md).
+Building a product in Nigeria means stitching together a dozen outside services, and the useful facts are scattered across blog posts, docs and group chats: who does virtual accounts, who checks BVN, which open banking API has shut down. This keeps them in one place, with plain-English descriptions and a status for each.
 
-## Must sort out first (8)
+Last checked: 2026-11. Inclusion is not an endorsement; always check the provider's current docs, pricing and terms.
 
-| Service | What it's for | Notes |
+**Status key:** 🟢 operating · 🟡 acquired (still operating) · 🔴 shut down
+
+## Payments and checkout
+
+Accept cards, bank transfers, USSD and wallets, and pay out to Nigerian bank accounts.
+
+| Service | What it does | Notes |
 |---|---|---|
-| **TikTok developer app** | for TikTok Login and posting videos. | ⏳ slow approval Audits and approvals take time. |
-| **Meta Business verification** | unlocks WhatsApp, Instagram, Facebook and ads. Needs a CAC certificate, a utility bill and a website. | ⏳ slow approval Gate in front of WhatsApp, Instagram, Facebook messaging and ads. Needs a CAC certificate, a utility bill in the business name and a matching website. If any don't line up, you wait. |
-| **WhatsApp platform number and first message templates** | sign-in codes, order updates, delivery codes. |  |
-| **Paystack live mode** | needs CAC documents, director IDs and a business bank account. | ✅ works well Solid. Split payments let money go straight to the seller's own bank through a subaccount. |
-| **SMS sender ID** | so texts arrive from "Shopinbos", not a random number. Approval takes days. | ⏳ slow approval Approval takes days. Build with a fallback SMS provider from day one. |
-| **Apple Developer (organisation)** | needs a D-U-N-S number, which can take one to two weeks. | ⏳ slow approval Needs a D-U-N-S number, which can take one to two weeks. |
-| **Google Play Console (organisation)** | identity checks, and new personal accounts must run a closed test first. | ⏳ slow approval New personal accounts must run a closed test first. |
-| **KYC provider business account** | for BVN, NIN and CAC checks. | 💸 paid per use BVN, NIN and CAC lookups are paid per check, often from a prepaid wallet. |
+| 🟡 [Paystack](https://paystack.com) | Online checkout, payment links, subscriptions, transfers and split payments. Cards, bank transfer, USSD and QR. | Acquired by Stripe in 2020. Widely used by Nigerian startups and SMEs. |
+| 🟢 [Flutterwave](https://flutterwave.com) | Pan-African payments: cards, transfers, mobile money, USSD and payment links across many currencies. Also offers bills payment APIs. | Good fit if you plan to sell in several African countries. |
+| 🟢 [Monnify (Moniepoint)](https://monnify.com) | Collections through dedicated virtual accounts, payouts to any Nigerian bank, and a bills payment API. | Monnify says it was the first Nigerian gateway to offer virtual accounts. |
+| 🟢 [Squad (GTCO)](https://squadco.com) | Collections by card, bank transfer and more, from Guaranty Trust's payments arm. |  |
+| 🟢 [Kora](https://korahq.com) | Pay-ins and payouts, including card, bank transfer and wallets such as OPay and PalmPay. |  |
+| 🟢 [Interswitch (Webpay / IPG)](https://www.interswitchgroup.com) | Long-standing payment gateway and switch. Verve cards, Quickteller and more. | Some developers find the integration heavier than newer gateways. |
+| 🟢 [Remita](https://www.remita.net) | Collections and payments, widely used for government and institutional payments. |  |
+| 🟢 [Fincra](https://fincra.com) | Pay-ins (gateway, payment links, virtual accounts) and payouts, including cross-border. |  |
+| 🟢 [SeerBit](https://seerbit.com) | Payment gateway for cards, transfers and more. |  |
+| 🟢 [eTranzact](https://www.etranzact.com) | Payment processing and switching, one of the older Nigerian players. |  |
 
-## The core platform (9)
+## Identity and KYC
 
-| Service | What it's for | Notes |
+Check NIN (via NIMC), BVN (via NIBSS), documents, faces and businesses before you onboard someone.
+
+| Service | What it does | Notes |
 |---|---|---|
-| **Supabase** | database, sign-in, file storage, live updates. | ✅ works well Works the same in Ibadan as in San Francisco. Billed in dollars. |
-| **Vercel** | hosts the web app, the API and every seller's store. |  |
-| **GitHub** | code, reviews, automatic checks. | ✅ works well Excellent. Billed in dollars. |
-| **Expo (EAS)** | builds and updates the phone apps. | ✅ works well Excellent. Billed in dollars. |
-| **Apple Developer** | iPhone apps and push notifications. |  |
-| **Google Play and Firebase** | Android apps and push notifications. |  |
-| **Upstash (Redis and QStash)** | rate limits, caching and background jobs. | ✅ works well Excellent. Billed in dollars. |
-| **Sentry** | error alerts. | ✅ works well Excellent. Billed in dollars. |
-| **PostHog** | analytics and feature switches. |  |
+| 🟢 [Smile ID](https://usesmileid.com) | Pan-African ID verification: NIN, BVN, phone and document checks, selfie matching and business checks. |  |
+| 🟢 [Dojah](https://dojah.io) | Identity verification, KYC widgets, fraud checks and lookups for African businesses. |  |
+| 🟢 [Prembly (formerly IdentityPass)](https://prembly.com) | Identity and business verification APIs for Nigeria and other markets. |  |
+| 🟢 [Youverify](https://youverify.co) | KYC, KYB and AML screening for banks and fintechs. |  |
+| 🟢 [QoreID (VerifyMe)](https://qoreid.com) | Identity, address and business verification in Nigeria. |  |
+| 🟢 [Didit](https://didit.me) | Global identity platform with Nigerian NIN and BVN checks and published per-check pricing. |  |
 
-## Payments and money (8)
+## Bank data and banking-as-a-service
 
-| Service | What it's for | Notes |
+Read account data with consent, open accounts for your users, issue virtual accounts and cards.
+
+| Service | What it does | Notes |
 |---|---|---|
-| **Paystack Transactions** | card, transfer and USSD at checkout. | ✅ works well Solid for card, transfer and USSD. |
-| **Paystack Webhooks** | tells us when a payment succeeds, fails or is refunded. |  |
-| **Paystack Transfers and Recipients** | payouts to sellers, suppliers and delivery companies. |  |
-| **Paystack Resolve Account** | shows the account name when someone types a bank number. |  |
-| **Paystack Dedicated Virtual Accounts** | a pay-in account for each delivery company. |  |
-| **Paystack Refunds** | returns and cancelled orders. |  |
-| **Dojah or Youverify** | BVN, NIN, CAC and selfie checks. | 💸 paid per use Paid per check. Worth having more than one provider as backup. |
-| **Exchange rate source** | the naira price of yuan for China imports. |  |
+| 🟡 [Mono](https://mono.co) | Open banking: connect bank accounts, read statements and balances, direct debit. | Acquired by Flutterwave in January 2026. |
+| 🔴 [Okra](https://okra.ng) | Open banking API. | Shut down in May 2025. Remove it from old integrations. |
+| 🟢 [Anchor](https://getanchor.co) | Banking-as-a-service: accounts, transfers, virtual accounts, cards, bill payments and bulk payouts. | Publishes an MCP server so AI coding tools can read its API docs. |
+| 🟢 [OnePipe](https://onepipe.io) | Embedded finance through partner banks: accounts, payments and lending products. |  |
+| 🟢 [Maplerad](https://maplerad.com) | Accounts, cards and payments infrastructure for African businesses. |  |
 
-## Messaging and sign-in (8)
+## SMS, OTP, voice and WhatsApp
 
-| Service | What it's for | Notes |
+Send OTPs, alerts and messages. In Nigeria, a registered sender ID and a backup route matter.
+
+| Service | What it does | Notes |
 |---|---|---|
-| **WhatsApp Cloud API** | sign-in codes, order and delivery updates. |  |
-| **WhatsApp Embedded Signup** | sellers connect their own WhatsApp Business number. |  |
-| **WhatsApp message templates** | codes, orders, receipts, broadcasts. Every template needs Meta's approval. | ⏳ slow approval Every template needs Meta's approval. |
-| **WhatsApp Catalog (Commerce API)** | sellers' products in their WhatsApp catalogue. |  |
-| **Termii or Sendchamp** | SMS codes and delivery codes. |  |
-| **Supabase Send SMS hook** | sends sign-in codes through WhatsApp or SMS. |  |
-| **Resend** | email codes, receipts and payout notices. | ✅ works well Excellent. Billed in dollars. |
-| **Expo Push (Apple and Google)** | "new order", "new message", "rider is coming". |  |
+| 🟢 [Termii](https://termii.com) | SMS, OTP, voice, WhatsApp and email APIs built in Nigeria, with a DND route for transactional messages. |  |
+| 🟢 [Africa's Talking](https://africastalking.com) | SMS, voice, USSD and airtime APIs across Africa. |  |
+| 🟢 [Sendchamp](https://sendchamp.com) | SMS, voice, WhatsApp and email APIs for African businesses. |  |
+| 🟢 [Twilio](https://www.twilio.com) | Global SMS, voice, WhatsApp and Verify APIs. Works for Nigeria, usually at higher local prices. |  |
+| 🟢 [WhatsApp Business Platform (Meta)](https://developers.facebook.com/docs/whatsapp) | Official WhatsApp API. Needs a verified Meta business; you pay Meta per message plus any provider fee. | Meta business verification asks for registration documents and a website that match. |
 
-## AI and media (9)
+## Bills, airtime and data (VAS)
 
-| Service | What it's for | Notes |
+Sell airtime, data, electricity tokens, cable TV and more inside your product.
+
+| Service | What it does | Notes |
 |---|---|---|
-| **Anthropic (Claude)** | powers Rex, who builds stores, and Peggy, who helps run them. |  |
-| **Embeddings** | product search by meaning, not just keywords. |  |
-| **Image generation** | logo ideas and banners. |  |
-| **Background removal** | clean product photos. |  |
-| **Video generation** | product videos for Reels, TikTok and WhatsApp Status. |  |
-| **Text to speech** | voiceovers in English, Pidgin, Yorùbá and Hausa. |  |
-| **Speech to text** | voice notes and voice typing. |  |
-| **Translation** | Chinese product titles into English. Our AI handles this, so no extra service. |  |
-| **Rive or Lottie** | animation files for Rex and Peggy. |  |
+| 🟢 [VTpass](https://www.vtpass.com/developers) | Airtime, data, cable TV, electricity, education and insurance payments, with a sandbox. |  |
+| 🟢 [Baxi (Onafriq)](https://onafriq.com) | Bill payments through a large agent network and API. Onafriq lists 248 billers. |  |
+| 🟢 [Flutterwave Bills](https://developer.flutterwave.com) | Airtime, data, cable, utilities and tax payments from your Flutterwave wallet. Nigerian billers only. |  |
+| 🟢 [Monnify Bills Payment](https://monnify.com/products/bills-payment) | Airtime, data, electricity tokens, cable TV and education payments. API only. |  |
 
-## Selling channels and ads (10)
+## Delivery and logistics
 
-| Service | What it's for | Notes |
+Quote, book and track deliveries inside Nigeria and abroad.
+
+| Service | What it does | Notes |
 |---|---|---|
-| **Instagram messaging** | Instagram DMs in one inbox. |  |
-| **Messenger Platform** | Facebook Page messages in the same inbox. |  |
-| **Instagram content publishing** | post photos, carousels and Reels. |  |
-| **Meta Catalog API** | Instagram and Facebook shops. |  |
-| **Meta Marketing API** | click-to-WhatsApp adverts. |  |
-| **TikTok Shop Partner API** | products and orders on TikTok Shop. | 🚫 closed to Nigeria When checked, Nigeria was not on TikTok Shop's list of seller markets, and partner developers must register in their own local market. |
-| **TikTok Content Posting API** | post product videos to sellers' TikTok accounts. |  |
-| **TikTok Marketing API** | TikTok adverts. |  |
-| **Google Merchant Center** | free product listings on Google. |  |
-| **Jumia and Konga** | marketplace listings. Manual applications first, APIs only after partner agreements. | 🤝 partnership first No open self-serve APIs. Partner agreement first. |
+| 🟢 [Shipbubble](https://shipbubble.com) | Shipping aggregator: one API for many couriers (DHL, UPS, GIG, Topship and others), with rate comparison. |  |
+| 🟢 [GIG Logistics](https://giglogistics.com/developer) | Courier with APIs for shipping inside Nigeria and internationally. | Contact them for API access details. |
+| 🟢 [Kwik Delivery](https://kwik.delivery) | Same-day last-mile delivery API, mainly Lagos and Abuja. |  |
+| 🟢 [Sendbox](https://sendbox.co) | Local and international shipping and fulfilment. |  |
+| 🟢 [Topship](https://topship.africa) | International shipping from Nigeria. |  |
 
-## Delivery and addresses (8)
+## Free data and open-source helpers
 
-| Service | What it's for | Notes |
+Reference data you'll need on day one: banks, states, LGAs and holidays.
+
+| Service | What it does | Notes |
 |---|---|---|
-| **Shipbubble** | quotes and bookings across couriers. |  |
-| **GIG Logistics** | interstate delivery. |  |
-| **Kwik** | same-day bikes in Lagos. |  |
-| **Konga KOS, Dreacot and Travo** | more delivery options, partner agreements first. | 🤝 partnership first Partner agreements first. |
-| **NIPOST postcode API** | correct postcodes at checkout. |  |
-| **Google Maps Places** | address search at checkout. |  |
-| **Google Maps Geocoding and Distance Matrix** | rider distance and delivery price. |  |
-| **Google Maps SDK (mobile)** | the rider map in the apps. |  |
+| 🟢 [ng-banks (npm)](https://github.com/BolajiOlajide/ng-banks) | Zero-dependency package listing CBN-recognised Nigerian banks. |  |
+| 🟢 [Nigerian Banks API](https://github.com/supermx1/nigerian-banks-api) | Static JSON of Nigerian banks with logos and USSD codes, served from GitHub Pages. |  |
+| 🟢 [States and Cities API](https://github.com/devcenter-square/states-cities) | Open-source API for states, cities and LGAs. |  |
+| 🟢 [OpenNG](https://openng-docs.vercel.app) | Nigerian public data as a REST API: holidays, states, LGAs, with fuel and food prices planned. |  |
+| 🟢 [API Ninjas: Nigeria bank holidays](https://api-ninjas.com/bank-holidays/nigeria) | Nigerian bank holidays by year, useful for settlement and payroll dates. |  |
 
-## Domains, imports and the website (8)
+## Before you launch
 
-| Service | What it's for | Notes |
-|---|---|---|
-| **Vercel Domains API** | sellers' own web addresses with SSL. |  |
-| **Domain registrar API** | sellers buy a web address inside the app. |  |
-| **NiRA-accredited registrar** | .ng and .com.ng addresses. |  |
-| **Cloudflare for SaaS** | a backup option for custom domains. |  |
-| **China sourcing partner** | buying, quality-check photos and shipping from China. |  |
-| **Shopify and WooCommerce import** | bring a seller's products and customers across. |  |
-| **Instagram post import** | turn Instagram posts into products. |  |
-| **WordPress** | the website, blog and help centre. |  |
-
-## Also worth knowing
-
-| Service | Notes |
+| Requirement | Why it matters |
 |---|---|
-| **CAC VAS API** | ⚠️ unreliable Worked in testing, then checks failed in production. Support form, chatbot and phone calls didn't resolve it. Backup identity providers were added. |
-| **Africa's Talking** | ✅ works well Calls and SMS have been reliable. |
+| CAC business registration | Most payment, KYC and WhatsApp providers ask for CAC documents before you go live. |
+| Nigeria Data Protection Act 2023 (NDPC) | Applies whenever you process personal data of people in Nigeria, including ID checks. |
+| CBN open banking framework | Went live on 1 August 2025. Affects how account-data and payment-initiation APIs work. |
+| SMS sender ID registration | Branded sender IDs need approval per network. Plan a fallback route. |
 
-## What the list taught me
+## Contribute
 
-- **Payments are not the problem.** Paystack is solid, and split payments mean we never hold customers' money.
-- **Plan for fallbacks from day one.** SMS, identity checks and some government data services can fail; have a second provider ready.
-- **Approvals take weeks.** D-U-N-S numbers, sender IDs, Meta verification and app store reviews aren't technical problems. They're waiting.
-- **Dollar billing hurts.** Most developer tools bill in dollars while customers pay in naira.
-- **Partnerships come before APIs.** Several marketplaces and delivery companies need an agreement before you can integrate.
-
-Full write-up: *Nigeria's API marketplace is thin, and builders are paying for it* (on my [LinkedIn](https://www.linkedin.com/in/tiwalade-joanna-okedara-kalu/)).
-
-## Contributing
-
-Building in Nigeria too? Add a service, update a note or share your experience. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Know a service that's missing, closed or renamed? Edit [`services.json`](services.json) and open a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md). Facts only, with a link; no affiliate links.
 
 ---
 Made by [Tiwalade Joanna Okedara-Kalu](https://github.com/tiwalade-joanna-okedara) · MIT licence
