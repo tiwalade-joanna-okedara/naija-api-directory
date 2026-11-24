@@ -92,7 +92,8 @@
      "note": "",
      "tags": "switching"
     }
-   ]
+   ],
+   "id": "payments"
   },
   {
    "category": "Identity and KYC",
@@ -146,7 +147,8 @@
      "note": "",
      "tags": "nin bvn global"
     }
-   ]
+   ],
+   "id": "kyc"
   },
   {
    "category": "Bank data and banking-as-a-service",
@@ -192,7 +194,8 @@
      "note": "",
      "tags": "cards baas"
     }
-   ]
+   ],
+   "id": "baas"
   },
   {
    "category": "SMS, OTP, voice and WhatsApp",
@@ -238,7 +241,8 @@
      "note": "Meta business verification asks for registration documents and a website that match.",
      "tags": "whatsapp meta"
     }
-   ]
+   ],
+   "id": "messaging"
   },
   {
    "category": "Bills, airtime and data (VAS)",
@@ -276,7 +280,8 @@
      "note": "",
      "tags": "airtime electricity"
     }
-   ]
+   ],
+   "id": "vas"
   },
   {
    "category": "Delivery and logistics",
@@ -321,6 +326,217 @@
      "status": "active",
      "note": "",
      "tags": "international export"
+    }
+   ],
+   "id": "delivery"
+  },
+  {
+   "id": "cards",
+   "category": "Card issuing",
+   "intro": "Give your users or staff virtual and physical cards.",
+   "services": [
+    {
+     "name": "Sudo Africa",
+     "url": "https://sudo.africa",
+     "what": "Card-issuing API for virtual and physical cards, with spending controls and a sandbox.",
+     "status": "active",
+     "note": "Based in Kaduna.",
+     "tags": "cards virtual dollar"
+    },
+    {
+     "name": "Bridgecard",
+     "url": "https://bridgecard.co",
+     "what": "Issue Visa or Mastercard cards to your customers through an API.",
+     "status": "active",
+     "note": "",
+     "tags": "cards dollar"
+    },
+    {
+     "name": "Anchor cards",
+     "url": "https://getanchor.co",
+     "what": "Create, fund and freeze cards from the same API as accounts and transfers, with webhooks.",
+     "status": "active",
+     "note": "",
+     "tags": "cards baas"
+    }
+   ]
+  },
+  {
+   "id": "lending",
+   "category": "Credit and lending data",
+   "intro": "Check creditworthiness, screen borrowers and report loans.",
+   "services": [
+    {
+     "name": "Lendsqr Adjutor",
+     "url": "https://adjutor.io",
+     "what": "Credit checks, blacklist screening and income estimation APIs for lenders.",
+     "status": "active",
+     "note": "Lendsqr also automates loan reporting to credit bureaus.",
+     "tags": "credit lending"
+    },
+    {
+     "name": "CreditChek",
+     "url": "https://creditchek.africa",
+     "what": "Credit-bureau history and identity checks through an API or no-code dashboard.",
+     "status": "active",
+     "note": "",
+     "tags": "credit bureau"
+    },
+    {
+     "name": "Indicina",
+     "url": "https://indicina.co",
+     "what": "Credit decisioning and lending software built around customer data.",
+     "status": "active",
+     "note": "",
+     "tags": "credit underwriting"
+    },
+    {
+     "name": "CRC Credit Bureau",
+     "url": "https://www.crccreditbureau.com",
+     "what": "Licensed credit bureau with APIs to pull credit reports and submit loan data.",
+     "status": "active",
+     "note": "CBN rules require loans to be reported to at least two credit bureaus.",
+     "tags": "credit bureau reporting"
+    }
+   ]
+  },
+  {
+   "id": "insurance",
+   "category": "Insurance",
+   "intro": "Sell or embed insurance inside your product.",
+   "services": [
+    {
+     "name": "Curacel Grow",
+     "url": "https://curacel.co",
+     "what": "Embedded life, health, auto and home insurance for fintech, credit, logistics and e-commerce apps.",
+     "status": "active",
+     "note": "",
+     "tags": "insurance embedded"
+    }
+   ]
+  },
+  {
+   "id": "crypto",
+   "category": "Crypto and stablecoins",
+   "intro": "Accept, pay out or settle in stablecoins.",
+   "services": [
+    {
+     "name": "Yellow Card API",
+     "url": "https://yellowcard.io/api",
+     "what": "Stablecoin-powered payments and settlement across many African countries.",
+     "status": "active",
+     "note": "",
+     "tags": "stablecoin payments"
+    },
+    {
+     "name": "Quidax",
+     "url": "https://www.quidax.io",
+     "what": "Crypto exchange with B2B APIs and liquidity for businesses.",
+     "status": "active",
+     "note": "",
+     "tags": "crypto exchange"
+    },
+    {
+     "name": "Busha",
+     "url": "https://busha.co",
+     "what": "Crypto exchange offering B2B crypto payment APIs.",
+     "status": "active",
+     "note": "",
+     "tags": "crypto"
+    },
+    {
+     "name": "Breet",
+     "url": "https://breet.io",
+     "what": "Stablecoin and crypto API that handles wallets, monitoring and settlement, with webhooks.",
+     "status": "active",
+     "note": "",
+     "tags": "stablecoin wallet"
+    }
+   ]
+  },
+  {
+   "id": "ai",
+   "category": "AI, voice and Nigerian languages",
+   "intro": "Speech, voice and AI that understands how Nigerians speak.",
+   "services": [
+    {
+     "name": "Spitch",
+     "url": "https://spitch.app",
+     "what": "Speech-to-text and text-to-speech for Yoruba, Hausa, Igbo, English and Amharic.",
+     "status": "active",
+     "note": "",
+     "tags": "speech yoruba hausa igbo"
+    },
+    {
+     "name": "Intron Sahara",
+     "url": "https://intron.io",
+     "what": "Speech recognition across 57 languages, including Yoruba, Hausa, Igbo and Pidgin.",
+     "status": "active",
+     "note": "",
+     "tags": "speech transcription"
+    },
+    {
+     "name": "OpenAI API",
+     "url": "https://platform.openai.com",
+     "what": "General-purpose language, vision and speech models.",
+     "status": "active",
+     "note": "Billed in US dollars.",
+     "tags": "llm ai"
+    },
+    {
+     "name": "Claude API (Anthropic)",
+     "url": "https://docs.claude.com",
+     "what": "General-purpose language models for chat, agents and coding.",
+     "status": "active",
+     "note": "Billed in US dollars.",
+     "tags": "llm ai agents"
+    }
+   ]
+  },
+  {
+   "id": "building-blocks",
+   "category": "Building blocks (global, work in Nigeria)",
+   "intro": "Auth, database, email, push and maps most apps need.",
+   "services": [
+    {
+     "name": "Supabase",
+     "url": "https://supabase.com",
+     "what": "Postgres database, auth, storage and realtime in one.",
+     "status": "active",
+     "note": "Billed in US dollars.",
+     "tags": "database auth"
+    },
+    {
+     "name": "Firebase Cloud Messaging",
+     "url": "https://firebase.google.com/docs/cloud-messaging",
+     "what": "Free push notifications for Android, iOS and web.",
+     "status": "active",
+     "note": "",
+     "tags": "push notifications"
+    },
+    {
+     "name": "Resend",
+     "url": "https://resend.com",
+     "what": "Transactional and marketing email API.",
+     "status": "active",
+     "note": "",
+     "tags": "email"
+    },
+    {
+     "name": "Google Maps Platform",
+     "url": "https://developers.google.com/maps",
+     "what": "Maps, places search, geocoding and routes.",
+     "status": "active",
+     "note": "",
+     "tags": "maps location"
+    },
+    {
+     "name": "Mapbox",
+     "url": "https://www.mapbox.com",
+     "what": "Maps, navigation and geocoding, an alternative to Google Maps.",
+     "status": "active",
+     "note": "",
+     "tags": "maps"
     }
    ]
   },
@@ -368,7 +584,8 @@
      "note": "",
      "tags": "holidays"
     }
-   ]
+   ],
+   "id": "data"
   }
  ],
  "before_you_launch": [
@@ -387,6 +604,203 @@
   {
    "name": "SMS sender ID registration",
    "note": "Branded sender IDs need approval per network. Plan a fallback route."
+  }
+ ],
+ "plans": [
+  {
+   "id": "fintech",
+   "label": "Fintech or wallet app",
+   "need": [
+    "payments",
+    "baas",
+    "kyc",
+    "messaging"
+   ],
+   "nice": [
+    "cards",
+    "lending",
+    "vas",
+    "building-blocks"
+   ],
+   "start": [
+    "Register your company with CAC.",
+    "Holding customers' money needs a CBN licence, or a licensed partner bank through a banking-as-a-service provider.",
+    "Plan KYC tiers: what you check (NIN, BVN, selfie) decides how much a user can send and hold.",
+    "Register a data protection compliance process under the NDPA 2023.",
+    "Get a branded SMS sender ID approved early, with a backup route."
+   ]
+  },
+  {
+   "id": "lending",
+   "label": "Lending app",
+   "need": [
+    "lending",
+    "kyc",
+    "payments",
+    "baas"
+   ],
+   "nice": [
+    "messaging",
+    "building-blocks"
+   ],
+   "start": [
+    "Get the right lending licence (for example a state money-lender licence or a CBN licence) and register as a digital lender with the FCCPC.",
+    "Report every loan to at least two credit bureaus, as CBN rules require.",
+    "Collect consent for credit checks and data use.",
+    "Set up collections: direct debit or virtual accounts for repayments."
+   ]
+  },
+  {
+   "id": "ecommerce",
+   "label": "Online store or marketplace",
+   "need": [
+    "payments",
+    "delivery",
+    "messaging"
+   ],
+   "nice": [
+    "kyc",
+    "building-blocks",
+    "insurance"
+   ],
+   "start": [
+    "CAC documents, director IDs and a business bank account to switch payments to live mode.",
+    "Use split payments or subaccounts so sellers get paid directly.",
+    "Decide who books and pays for delivery, and offer pickup points.",
+    "Verify sellers (ID and business checks) before they list."
+   ]
+  },
+  {
+   "id": "logistics",
+   "label": "Delivery or logistics app",
+   "need": [
+    "building-blocks",
+    "messaging",
+    "payments",
+    "kyc"
+   ],
+   "nice": [
+    "delivery",
+    "insurance"
+   ],
+   "start": [
+    "Verify riders and drivers: ID, address and a liveness check.",
+    "Use maps for addresses, routing and live tracking.",
+    "Send delivery codes by SMS or WhatsApp so drops are confirmed.",
+    "Consider goods-in-transit insurance for parcels."
+   ]
+  },
+  {
+   "id": "vas",
+   "label": "Bills, airtime and data app",
+   "need": [
+    "vas",
+    "payments",
+    "kyc"
+   ],
+   "nice": [
+    "messaging",
+    "baas"
+   ],
+   "start": [
+    "Fund a wallet with your VAS provider and monitor the balance.",
+    "Test every biller in the sandbox before launch.",
+    "Give each user a virtual account so top-ups reconcile automatically.",
+    "Keep receipts and a clear refund flow for failed purchases."
+   ]
+  },
+  {
+   "id": "crypto",
+   "label": "Crypto or stablecoin app",
+   "need": [
+    "crypto",
+    "kyc",
+    "payments"
+   ],
+   "nice": [
+    "baas",
+    "messaging"
+   ],
+   "start": [
+    "Check SEC Nigeria's rules for digital asset businesses before you launch.",
+    "Run KYC and AML screening on every user.",
+    "Decide whether you settle in naira, stablecoins or both.",
+    "Show users clear fees and exchange rates."
+   ]
+  },
+  {
+   "id": "insurtech",
+   "label": "Insurance product",
+   "need": [
+    "insurance",
+    "payments",
+    "kyc"
+   ],
+   "nice": [
+    "messaging",
+    "building-blocks"
+   ],
+   "start": [
+    "Partner with a NAICOM-licensed insurer, or use an embedded insurance provider that has one.",
+    "Make claims easy to start inside your app.",
+    "Collect premiums with recurring payments."
+   ]
+  },
+  {
+   "id": "saas",
+   "label": "SaaS or subscription app",
+   "need": [
+    "payments",
+    "building-blocks",
+    "messaging"
+   ],
+   "nice": [
+    "ai",
+    "kyc"
+   ],
+   "start": [
+    "Use recurring billing with naira and dollar pricing if you sell abroad.",
+    "Send receipts and dunning emails for failed renewals.",
+    "Add an AI assistant only where it saves your users time."
+   ]
+  },
+  {
+   "id": "voice",
+   "label": "Voice or AI assistant in local languages",
+   "need": [
+    "ai",
+    "messaging"
+   ],
+   "nice": [
+    "building-blocks",
+    "payments"
+   ],
+   "start": [
+    "Choose speech models that support the languages your users speak, including Pidgin and code-switching.",
+    "Use a voice API for phone calls and a WhatsApp channel for chat.",
+    "Test with real accents and noisy audio before launch.",
+    "Tell users when they're talking to AI."
+   ]
+  },
+  {
+   "id": "community",
+   "label": "Community, gaming or creator app",
+   "need": [
+    "payments",
+    "kyc",
+    "messaging",
+    "building-blocks"
+   ],
+   "nice": [
+    "baas",
+    "cards"
+   ],
+   "start": [
+    "Verify users before paying out prizes or earnings.",
+    "Publish clear rules, fees and payout times.",
+    "Use push notifications and SMS OTP for sign-in and alerts.",
+    "Keep winnings or earnings with a licensed partner, not in your own account."
+   ]
   }
  ]
 }

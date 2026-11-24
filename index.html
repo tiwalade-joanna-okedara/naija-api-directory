@@ -1,28 +1,57 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Naija API Directory: APIs for building software in Nigeria</title>
-<meta name="description" content="A searchable, community list of Nigerian payment, KYC, banking, messaging, bills and delivery APIs, plus free reference data.">
-<link rel="stylesheet" href="style.css"></head><body><div class="wrap">
+<meta name="description" content="Tell it what you're building (fintech, store, lending, delivery, crypto and more) and see which Nigerian APIs to use and what you need to get started.">
+<link rel="stylesheet" href="style.css">
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plan{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;margin-top:16px}
+.plan h3{margin:0 0 8px;font-size:17px}
+.need{border-left:3px solid var(--brand);padding:2px 0 2px 12px;margin:0 0 14px}
+.need.nice{border-color:var(--line)}
+.need b{display:block}
+.need a{margin-right:10px;white-space:nowrap}
+.start ol{margin:0;padding-left:20px}.start li{margin:0 0 8px}
+@media(max-width:760px){.plan{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
 <header class="top"><h1>Naija API Directory 🇳🇬</h1><a href="https://github.com/tiwalade-joanna-okedara/naija-api-directory">Add a service on GitHub</a></header>
-<p class="tag">The APIs you need to build software in Nigeria, in one searchable list: payments, KYC, bank data, SMS and WhatsApp, bills, delivery and free reference data.</p>
-<div class="card row"><div><label for="q">Search</label><input id="q" placeholder="Try: virtual accounts, BVN, OTP, delivery"></div>
+<p class="tag">Building software in Nigeria? Pick what you're building to see which APIs you need and what to have ready, or search all the services.</p>
+
+<section class="card" id="planner"><h2 style="margin-top:0">What are you building?</h2><div class="chips" id="chips"></div><div id="plan"></div></section>
+
+<div class="card row"><div><label for="q">Search all services</label><input id="q" placeholder="Try: virtual accounts, BVN, OTP, stablecoin, Yoruba"></div>
 <div><label for="cat">Category</label><select id="cat"><option value="">All categories</option></select></div>
 <div><label for="st">Status</label><select id="st"><option value="">Any status</option></select></div></div>
 <p class="muted" id="count"></p><div id="list"></div>
 <div class="card" id="gates"></div>
-<footer>Inclusion is not an endorsement. Always check the provider's current docs, pricing and terms. <span id="upd"></span> <a href="https://github.com/tiwalade-joanna-okedara/naija-api-directory/blob/main/CONTRIBUTING.md">Suggest a change</a>. Made by <a href="https://github.com/tiwalade-joanna-okedara">Tiwalade Joanna Okedara-Kalu</a>.</footer>
+<footer>Inclusion is not an endorsement, and this isn't legal advice: check each provider's current docs, pricing and terms, and the rules for your sector. <span id="upd"></span> <a href="https://github.com/tiwalade-joanna-okedara/naija-api-directory/blob/main/CONTRIBUTING.md">Suggest a change</a>. Made by <a href="https://github.com/tiwalade-joanna-okedara">Tiwalade Joanna Okedara-Kalu</a>.</footer>
 </div><script>
-const PILL={active:'good',acquired:'warn',closed:'bad'};let D;
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-fetch('services.json').then(r=>r.json()).then(d=>{D=d;
- d.categories.forEach(c=>cat.add(new Option(c.category,c.category)));
- Object.entries(d.status_key).forEach(([k,v])=>st.add(new Option(v,k)));
- gates.innerHTML='<h3 style="margin-top:0">Before you launch</h3><table>'+d.before_you_launch.map(g=>`<tr><td style="width:32%"><b>${esc(g.name)}</b></td><td>${esc(g.note)}</td></tr>`).join('')+'</table>';
- upd.textContent='Last checked '+d.updated+'.';
- ['q','cat','st'].forEach(i=>document.getElementById(i).addEventListener('input',render));render();});
-function render(){const qv=q.value.toLowerCase().trim(),cv=cat.value,sv=st.value;let n=0,h='';
+{
+const PILL={active:'good',acquired:'warn',closed:'bad'};let D,byId={};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=i=>document.getElementById(i);
+fetch('services.json').then(r=>r.json()).then(d=>{D=d;d.categories.forEach(c=>byId[c.id]=c);
+ d.categories.forEach(c=>$('cat').add(new Option(c.category,c.category)));
+ Object.entries(d.status_key).forEach(([k,v])=>$('st').add(new Option(v,k)));
+ $('chips').innerHTML=d.plans.map(p=>`<button class="chip" data-p="${esc(p.id)}" aria-pressed="false">${esc(p.label)}</button>`).join('');
+ $('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;location.hash=b.dataset.p;});
+ $('gates').innerHTML='<h3 style="margin-top:0">Before you launch anything</h3><table>'+d.before_you_launch.map(g=>`<tr><td style="width:32%"><b>${esc(g.name)}</b></td><td>${esc(g.note)}</td></tr>`).join('')+'</table>';
+ $('upd').textContent='Last checked '+d.updated+'.';
+ ['q','cat','st'].forEach(i=>$(i).addEventListener('input',render));
+ addEventListener('hashchange',plan);plan();render();});
+function links(id){const c=byId[id];return c.services.filter(s=>s.status!=='closed').map(s=>`<a href="${esc(s.url)}" rel="noopener">${esc(s.name)}</a>`).join(' ');}
+function plan(){const id=location.hash.slice(1),p=D.plans.find(x=>x.id===id);
+ document.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===id));
+ if(!p){$('plan').innerHTML='<p class="muted" style="margin-bottom:0">Pick one above.</p>';return;}
+ const row=(i,nice)=>`<div class="need${nice?' nice':''}"><b>${esc(byId[i].category)}${nice?' (optional)':''}</b><span class="muted">${esc(byId[i].intro)}</span><br>${links(i)}</div>`;
+ $('plan').innerHTML=`<div class="plan"><div><h3>APIs for a ${esc(p.label.toLowerCase())}</h3>${p.need.map(i=>row(i,false)).join('')}${p.nice.map(i=>row(i,true)).join('')}</div>
+ <div class="start"><h3>What you need to get started</h3><ol>${p.start.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div></div>`;}
+function render(){const qv=$('q').value.toLowerCase().trim(),cv=$('cat').value,sv=$('st').value;let n=0,h='';
  for(const g of D.categories){if(cv&&g.category!==cv)continue;
-  const it=g.services.filter(x=>(!sv||x.status===sv)&&(!qv||(x.name+' '+x.what+' '+x.note+' '+x.tags).toLowerCase().includes(qv)));
+  const it=g.services.filter(x=>(!sv||x.status===sv)&&(!qv||(x.name+' '+x.what+' '+x.note+' '+x.tags+' '+g.category).toLowerCase().includes(qv)));
   if(!it.length)continue;n+=it.length;
   h+=`<div class="card"><h3 style="margin:0 0 4px">${esc(g.category)}</h3><p class="muted" style="margin-top:0">${esc(g.intro)}</p><table>`+it.map(x=>`<tr><td style="width:32%"><a href="${esc(x.url)}" rel="noopener"><b>${esc(x.name)}</b></a><br><span class="pill ${PILL[x.status]}">${esc(D.status_key[x.status])}</span></td><td>${esc(x.what)}${x.note?`<div class="muted" style="margin-top:4px">${esc(x.note)}</div>`:''}</td></tr>`).join('')+'</table></div>';}
- list.innerHTML=h||'<p>No matches.</p>';count.textContent=n+' services shown';}
+ $('list').innerHTML=h||'<p>No matches. Try another word, or <a href="https://github.com/tiwalade-joanna-okedara/naija-api-directory/issues/new">suggest a service</a>.</p>';$('count').textContent=n+' services shown';}
+}
 </script></body></html>
